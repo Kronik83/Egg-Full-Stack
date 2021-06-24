@@ -18,15 +18,19 @@ Algoritmo sin_titulo
 	definir i,vector, n, vectorA, vectorB, vectorC, limite Como Entero
 	Definir op Como Caracter
 	definir A,B,C Como Logico
+	///defino las variables que se inicializan para luego poder usarlas.
 	limite = 100
-	A= Falso
+	A=Falso
 	B=Falso
 	C=Falso
+	///defino el tamaño del vector por teclado
 	Escribir "Ingrese el Tamaño de los Vectores"
 	leer n
+	///defino los vectores con el tamaño ya establecido en "n"
 	dimension vectorA[n], vectorB[n], vectorC[n]
+	///primer repetir para q se cumpla que si op = "f" se salga del Algoritmo 
 	repetir
-		
+		///segundo repetir para el bucle del menu cuando op es distinto de (a,b,c,d,e,f), vuelva a pedir el valor hasta q a
 		repetir
 			Borrar Pantalla
 			escribir " --- Menú --- "
@@ -40,39 +44,51 @@ Algoritmo sin_titulo
 			leer op
 		Mientras Que Minusculas(op) < "a" o Minusculas(op)>"f"
 		
-		
+		///opcion multiple 
 		segun op
 			"a":
+				///la variable "A" es logica y mas adelante me permite determinar si el vector esta cargado o no
 				A= Verdadero
+				///carga de vectorA con funcion aleatorio(-limite, limite)
 				para i=0 hasta n-1
 					vectorA[i] = Aleatorio(-limite,limite)
 				FinPara
 				escribir "Vector A"
 				mostrarVector(vectorA,n)
 			"b":
+				///la variable "B" es logica y mas adelante me permite determinar si el vector esta cargado o no
 				B=Verdadero
+				///idem carga anterior
 				para i = 0 hasta n-1
 					vectorB[I] = Aleatorio(-limite, limite)
 				FinPara
 				Escribir "Vector B"
 				mostrarVector(vectorB,n)
 			"c":
+				///control de vector si los vectores A y B fueron cargados por medio de la variable Logica "A" y "B"
+				///si alguna es falsa me saca al menu y si ambas son verdaderas continua
 				si A=Falso o b=Falso Entonces
 					Escribir "Primero debe cargar el vector"
 					op = "a"
 				SiNo
+					///muestro el vectro A y B
 					mostrarVector(vectorA,n)
 					escribir "+"
 					mostrarVector(vectorB,n)
+					///con un bucle para recorro cada indice del vector C y tmb recorro cada indice en A y B de forma corresponriente
+					///entre los 3 vectores y al vector c le asigno la suma de a y b
 					para i = 0  hasta n-1
 						vectorC[i]= vectorA[i]+vectorB[i]
 					FinPara
 					Escribir  "="
+					///Muestro el vector C
 					mostrarVector(vectorC,n)
+					///cargo una variable logica para hacer contro mas adelante
 					C=Verdadero
 				FinSi
-				Esperar Tecla
 			"d":
+				///control de vector si los vectores A y B fueron cargados por medio de la variable Logica "A" y "B"
+				///si alguna es falsa me saca al menu y si ambas son verdaderas continua
 				si a =Falso o  b= Falso  Entonces
 					escribir "los vectores estan vacios cargarlos antes"
 				SiNo
@@ -80,14 +96,18 @@ Algoritmo sin_titulo
 					Escribir "-"
 					mostrarVector(vectorA,n)
 					Escribir "="
+					///con un bucle para recorro cada indice del vector C y tmb recorro cada indice en A y B de forma corresponriente
+					///entre los 3 vectores y al vector c le asigno la resta de b y a
 					para i = 0  hasta n-1
 						vectorC[i]= vectorB[i]-vectorA[i]
 					FinPara
-					 mostrarVector(vectorC,n)
-					Esperar Tecla
+					mostrarVector(vectorC,n)
+					///cargo una variable logica para hacer contro mas adelante
+					c=Verdadero
 				FinSi
-				Esperar Tecla
 			"e":
+				///bucle de control para submenu si los valores son distintos de 1,2 y 3, continua pidiendo la opcion 
+				///hasta ingesar un valor correcto
 				repetir
 					Borrar Pantalla
 					Escribir " --- Menú de Vectores --- "
@@ -97,6 +117,7 @@ Algoritmo sin_titulo
 					escribir "Elegir el Vector: "Sin Saltar
 					leer vector
 				mientras que vector <1 o vector >3
+				///opcion multiple que me permite elegir 3 opciones posibles
 				segun vector
 					1:
 						si A=Falso Entonces
@@ -128,6 +149,9 @@ Algoritmo sin_titulo
 	mientras que Minusculas(op) <> "f"
 FinAlgoritmo
 
+
+///subproceso que me permite mostrar por pantalla el vector, donde el parametro "a", es el vector que deseo mostrar 
+///y "b" es el tamaño del vector
 SubProceso mostrarVector(a,b)
 	definir i Como Entero
 	para i = 0 Hasta b-1

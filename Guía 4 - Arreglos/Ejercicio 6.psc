@@ -19,57 +19,71 @@ Algoritmo sin_titulo
 	definir i ,pos, limite Como Entero
 	definir log Como Logico
 	log = Falso
+	///definicion de arreglo llamado "vector" de tamaño 20
 	dimension vector[20]
-	Escribir "Ingrese una frase de no mas de 20 caracteres"
-	leer frase
+	///dato por teclado frase se pide q no supere los 20 caracteres y no sea vacia
+	Repetir
+		Escribir "Ingrese una frase de no mas de 20 caracteres"
+		leer frase
+	Mientras Que Longitud(frase) > 20 o frase=""
+	///limite contien la longitud de frase menos un caracter (como despues uso la funcion subcadena con este limite
+	///y sub cadena parde desde 0 hasta la ultima letra, en este cado es limite)
 	limite = Longitud(frase)-1
-	Esperar Tecla
+	///carga de la frase en el vector
 	para i = 0 hasta 19
 		si limite>=i entonces
+			///por medio del condcional mientras la pocision del indice no sea mayor al limite voy a ir cargando 
+			///en cada posicion una letra extraida de la frase por medio de subcadena
 			vector[i]=subcadena(frase,i,i)
 		SiNo
+			///si se termina la frase completo hasta finalizar el vector con espacios
 			vector[i] = " " 
 		FinSi
 	FinPara
 	escribir "Vector Original"
+	/// muestro el vector por medio de un subprocesdo
 	mostrarVector(vector)
+	///ingreso el caracter a agreagar
 	escribir "Ingrese un caracter: " Sin Saltar
 	leer carc
+	///control de ingreso de posicion si el numero ingresado es menor q 0 o mayor a 19, 
+	///lo vuelvo a pedir hasta ingresar un valor valido
 	Repetir
-		escribir "Ingrese una posicion del 1 al 20: "Sin Saltar
+		escribir "Ingrese una posicion del 0 al 19: "Sin Saltar
 		leer pos
-	Mientras Que pos<1 o pos>20
-	pos = pos - 1
-	para  i=0 hasta 19
-		si vector[pos]=" " Entonces
-			vector[pos]= carc
-			log= Verdadero
-		FinSi
-	FinPara
-	si log = Verdadero entonces
-		mostrarVector(vector)
+	Mientras Que pos<0 o pos>19
+	///verifico si el vector en la posision indicada es igual a espacio
+	si vector[pos]=" " Entonces
+		///en esa  posision coloco el caracter anteriormente especificado
+		vector[pos]= carc
+		mostrarVector(vector)	///muestro el vector actual
 	SiNo
+		///si no se encuentra explico
 		Escribir "La posicion esta ocupada por la letra ", vector[pos]
 	FinSi
 FinAlgoritmo
 
+///subproceso q muestra el vector, con algunas particularidades.
 subproceso mostrarVector(a)
 	definir i Como Entero
+	///primer bucle muestra las posiciones del 0-9 y las decenas tmb de 0-9 para mejor visualizacion en la comparacion con el vector
+	/// ESTO ES OPCIONAL
 	para i = 0 hasta 19 Hacer
 		si i = 19
-			escribir i+1
+			escribir i-10
 		sino
-			si i <9 entonces
-				escribir i+1," " sin saltar
+			si i <10 entonces
+				escribir i," " sin saltar
 			SiNo
-				escribir i-9, " " Sin Saltar
+				escribir i-10, " " Sin Saltar
 			FinSi
 		FinSi
 	FinPara
+	///bucle q muestra el vector en una oracion
 	para i = 0 hasta 19
 		Escribir a[i], " " Sin Saltar
-		si i =19 Entonces
-			Escribir ""
+		si i =19 Entonces	///este si es para q al finalizar me ingrese un salto de linea
+			Escribir ""		///salto de linea
 		FinSi
 	FinPara
 FinSubProceso

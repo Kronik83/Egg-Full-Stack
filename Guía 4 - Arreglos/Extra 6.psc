@@ -2,12 +2,18 @@
 //arreglo y su valor más grande.
 Algoritmo sin_titulo
 	Definir i, n, vec, mayor, menor Como Entero	
-	Escribir "Ingrese el tamaño del vector "Sin Saltar
-	leer n
+	///control para que el tamaño sea mayor q 0
+	repetir
+		Escribir "Ingrese el tamaño del vector "Sin Saltar
+		leer n
+	mientras que n<=0
+	///defino el vector vec con el tamaño pasado por teclado
 	Dimension vec[n]
+	///cargo el vector con datos random
 	para i = 0 Hasta n-1
 		vec[i]=Aleatorio(1,10)
 	FinPara
+	/// lo imprimo por pantalla es una linea
 	para i = 0 Hasta  n-1
 		escribir vec[i] ," " sin saltar
 		si i= n-1 Entonces
@@ -15,6 +21,7 @@ Algoritmo sin_titulo
 		FinSi
 	FinPara
 	mayor=0
+	///determino el valor mayor del vector
 	para i=0 Hasta n-1
 		si mayor <= vec[i] Entonces
 			mayor = vec[i]
@@ -23,6 +30,7 @@ Algoritmo sin_titulo
 			menor = vec[i]
 		FinSi
 	FinPara
+	///determino el valor menor
 	para i= 0 Hasta n-1
 		si menor>= vec[i] y menor < mayor Entonces
 			menor = vec[i]
