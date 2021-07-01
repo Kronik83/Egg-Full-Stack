@@ -1,4 +1,28 @@
 ///Analicenlo parte por parte no es complicado
+/// en el Algoritmo Principal son solo dialogos y llamado de procesos y funciones
+///	Quien resuelve todo son los procesos y funciones
+
+/// Funcion VerificarFrase(frase), como lo dice la funcion verifica el tamaño, que los fatores sean los correctos y 
+///que almenos se ingrese una ves alguno de ellos
+
+///SubProcesos
+///Carga(mat, n, frase)
+///ver(mat,n)
+///hacen los q se espera cargar la matriz y mostrarla por pantalla
+
+///FUnciones
+///DP=AnalisisP(mat, n)
+///DS=AnalisisS(mat,n)
+///Analisan las dos diagonales la primaria y secundaria, y devuelven un valor logico de acuerdo al analisis
+
+///SubProceso
+///AnalisisFinal(DP,DS)
+///en base al valor de DP Y DS muestra una conclucion
+
+///hay un solo bucle de control que analiza el valor de seguir, si es falso se reinicia y si es verdadero se sale
+///solo es falso cuando no se cumplen las condiciones del enunciado (funcion VerificarFrase = Falso)
+///y es verdadero cuando ingresamos F,f o se termina el ejercicio
+
 
 Algoritmo GenZombie
 	definir mat, frase Como Caracter
@@ -33,7 +57,7 @@ Algoritmo GenZombie
 				Borrar Pantalla
 				Escribir "Arranquemos de nuevo"
 			FinSi
-			si n= rc(longitud(frase))
+			si n= rc(longitud(frase)) entonces		///otro control de reafirmacion 
 				Borrar Pantalla
 				Escribir "Perfecto, la Cadena se acepta para el Analisis"
 				esperar 2 segundos
@@ -47,10 +71,13 @@ Algoritmo GenZombie
 				DS=AnalisisS(mat,n)
 				AnalisisFinal(DP,DS)
 				seguir = Verdadero
+			SiNo
+				seguir = Falso
 			FinSi
 		FinSi
 	Mientras Que seguir <> Verdadero
 FinAlgoritmo
+
 SubProceso AnalisisFinal(a,b)
 	Escribir ""
 	Escribir "Resultados:"
@@ -89,17 +116,17 @@ funcion ret= AnalisisS(mat,n)
 	definir ret Como Logico
 	Dimension vec[n]
 	para i= 0 hasta n-1
-		vec[i]=mat[i,n-i-1]
+		vec[i]=mat[i,n-i-1]			///cargo el vector con la diagonal secundaria
 	FinPara
 	aux=0
 	para i =0 hasta n-2
-		si vec[i]=vec[i+1] Entonces
+		si vec[i]=vec[i+1] Entonces	///compara los elementes del vector entre si 
 			aux= aux+1
 		FinSi
 	FinPara
-	si aux= n-1
-		ret=Verdadero
-	sino 
+	si aux= n-1						///si las comparaciones verdaderas suman el total de elementos -1 es verdadero 
+		ret=Verdadero				///(si la matriz es 3x3 la diagonal es sde 3 elemento por lo q el vector es de 3 elementos y si las comparaciones verdaderas, 
+	sino 							///son 2 entonces todos sus elementos son iguales)
 		ret= Falso
 	FinSi
 FinFuncion
@@ -110,17 +137,17 @@ funcion ret=AnalisisP(mat,n)
 	definir vec Como Caracter
 	Dimension vec[n]
 	para i= 0 hasta n-1
-		vec[i]=mat[i,i]
+		vec[i]=mat[i,i]				///cargo el vector con la diagonal primaria
 	FinPara
 	aux=0
 	para i =0 hasta n-2
-		si vec[i]=vec[i+1] Entonces
+		si vec[i]=vec[i+1] Entonces	///comparo los elementos del vector entre si
 			aux= aux+1
 		FinSi
 	FinPara
-	si aux= n-1
-		ret=Verdadero
-	sino 
+	si aux= n-1						///si las comparaciones verdaderas suman el total de elementos -1 es verdadero 
+		ret=Verdadero				///(si la matriz es 3x3 la diagonal es sde 3 elemento por lo q el vector es de 3 elementos y si las comparaciones verdaderas,
+	sino 							///son 2 entonces todos sus elementos son iguales)
 		ret= Falso
 	FinSi
 FinFuncion
@@ -133,7 +160,7 @@ subproceso Carga(Mat,n,frase)
 		para j=0 hasta n-1
 			mat[i,j] = subcadena(frase,j+aux,j+aux)
 		FinPara
-		aux =aux +n
+		aux =aux + n
 	FinPara
 FinSubProceso
 
@@ -155,10 +182,10 @@ funcion ret=VerificarFrase(frase)
 	c=0
 	d=0
 	n=0
-	si long =9 o long = 16 o long=1369 Entonces
-		n=1
+	si long =9 o long = 16 o long=1369 Entonces					///control de longitud
+		n=1													///n=1 solo si se cumple la longitud
 		para i = 0 hasta long-1
-			segun Subcadena(frase,i,i)
+			segun Subcadena(frase,i,i)							///la idea de este segun es no hacer si anidados para identificar la cantidad de cada factores ingresados
 				"a","A":
 					a=a+1
 				"b","B":
@@ -174,10 +201,10 @@ funcion ret=VerificarFrase(frase)
 					d=0
 			FinSegun
 		FinPara
-		si a+b+d+c = long y a>0 y b>0 y c>0 y d>0 Entonces
-			n=rc(long)
+		si a+b+d+c = long y a>0 y b>0 y c>0 y d>0 Entonces		///control de fatores cumple con la reafirmacion de longitud y que almenos uno de sus factores sea ingresado una ves
+			n=rc(long)										///n es la raiz cuadrada de la longitud de la frase
 		FinSi
 	FinSi
-	ret = n
-FinFuncion
+	ret = n													///ret 0 n que son son 2 posibles valores 0, 1 o el tamaño de n de la matriz 
+FinFuncion													///(ver secuencia de dialogo del algortimo principal para entender su sentido)
 	
