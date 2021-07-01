@@ -1,4 +1,6 @@
-Algoritmo sin_titulo
+///Analicenlo parte por parte no es complicado
+
+Algoritmo GenZombie
 	definir mat, frase Como Caracter
 	definir n como entero
 	definir seguir, DP,DS Como Logico
@@ -10,38 +12,42 @@ Algoritmo sin_titulo
 		Escribir "Condiciones:"
 		Escribir "1- Debe estar fomada por los factores: A,B,C,D, debe al menos tener uno de los factores"
 		Escribir "2- Debe tener un largo de 9 , 16 o 1396 caracteres"
+		Escribir "Ingrese F para Salir"
 		Escribir ""
 		Escribir "Ingrese la Cadena" Sin Saltar
 		leer frase
-		
-		n=VerificarFrase(frase)
-		si n= 0 Entonces
-			Escribir "No cumple la condicion de Logitud, la cadena esta fuera de rango"
-			Esperar 2 Segundos
-			Borrar Pantalla
-			Escribir "--- Arranquemos de nuevo ---"
-			Escribir ""
-		FinSi
-		si n=1 Entonces
-			Escribir "Cadena no es aceptada por lo factores, no estan presentes almenos una vez presentes o son erroneos"
-			Esperar 2 Segundos
-			Borrar Pantalla
-			Escribir "Arranquemos de nuevo"
-		FinSi
-		si n= rc(longitud(frase))
-			Borrar Pantalla
-			Escribir "Perfecto, la Cadena se acepta para el Analisis"
-			esperar 2 segundos
-			Borrar Pantalla
-			Escribir "Esperando Resultados:"
-			esperar 2 segundos
-			dimension mat[n, n]
-			Carga(mat, n, frase)
-			ver(mat,n)
-			DP=AnalisisP(mat, n)
-			DS=AnalisisS(mat,n)
-			AnalisisFinal(DP,DS)
-			seguir = Verdadero
+		si frase = "f" o frase="F" entonces
+			seguir=Verdadero
+		SiNo
+			n=VerificarFrase(frase)
+			si n= 0 Entonces
+				Escribir "No cumple la condicion de Logitud, la cadena esta fuera de rango"
+				Esperar 2 Segundos
+				Borrar Pantalla
+				Escribir "--- Arranquemos de nuevo ---"
+				Escribir ""
+			FinSi
+			si n=1 Entonces
+				Escribir "Cadena no es aceptada por lo factores, no estan presentes almenos una vez presentes o son erroneos"
+				Esperar 2 Segundos
+				Borrar Pantalla
+				Escribir "Arranquemos de nuevo"
+			FinSi
+			si n= rc(longitud(frase))
+				Borrar Pantalla
+				Escribir "Perfecto, la Cadena se acepta para el Analisis"
+				esperar 2 segundos
+				Borrar Pantalla
+				Escribir "Esperando Resultados:"
+				esperar 2 segundos
+				dimension mat[n, n]
+				Carga(mat, n, frase)
+				ver(mat,n)
+				DP=AnalisisP(mat, n)
+				DS=AnalisisS(mat,n)
+				AnalisisFinal(DP,DS)
+				seguir = Verdadero
+			FinSi
 		FinSi
 	Mientras Que seguir <> Verdadero
 FinAlgoritmo
@@ -55,14 +61,6 @@ SubProceso AnalisisFinal(a,b)
 		Esperar 1 Segundos
 		Escribir "Diagonal Secundaria: Encontada"
 		Escribir " Precencia del -- Gen Z -- "
-		esperar 2 Segundos
-		Borrar Pantalla
-		Escribir "Posible zombie"
-		Borrar Pantalla
-		esperar 1 Segundos
-		Escribir "Ya se convirtio"
-		esperar 1 Segundos
-		Escribir "a VAKJFSDFBAJBkjsdbf  "
 	SiNo
 		si a=Verdadero y b=Falso entonces
 			Escribir "Diagonal Principal: Encontrada"
