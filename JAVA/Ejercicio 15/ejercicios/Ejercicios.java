@@ -30,18 +30,21 @@ public class Ejercicios {
    
     public static void main(String[] args) {
            // TODO code application logic here 
-           Ejercicios menu = new Ejercicios();
+           Ejercicios menu = new Ejercicios();              //Definicion de nuevo Objeto (Menu)
            
-           menu.Menu();
+           menu.Menu();                 
     }
     
+    
+    // algo parecido a un SubProceso  Menu
     public void Menu(){
-        Scanner sc = new Scanner(System.in).useDelimiter("\n");
+            Scanner sc = new Scanner(System.in).useDelimiter("\n");
             int opc=0;
             String salida = null;
-            
+            //Definicion de nuevo Objeto (op que viene del archivo Opciones.java que es donde estan las operaciones)
             Operaciones op = new Operaciones(); 
-           do{
+           //hacer ... mientras que
+            do{
                     System.out.println("MENU:");
                     System.out.println("1) - Sumar");
                     System.out.println("2) - Restar");
@@ -52,25 +55,25 @@ public class Ejercicios {
                     opc = sc.nextInt();
                     switch (opc) {
                         case 1:
-                            op.suma();
+                            op.suma();                  //llamo la operacion suma definida en el Archivo Operaciones
                             break;
                         case 2:
-                            op.suma();
+                            op.resta();                  //llamo la operacion resta definida en el Archivo Operaciones
                             break;
                         case 3:
-                            op.miltiplicacion();
+                            op.miltiplicacion();    //llamo la operacion multiplicacion definida en el Archivo Operaciones
                             break;
                         case 4:
-                            op.division();
+                            op.division();              //llamo la operacion division definida en el Archivo Operaciones
                             break;
                         case 5:
-                            op.salir();
+                            op.salir();                     //llamo la operacion salir definida en el Archivo Operaciones
                            break;
                         default:
                             System.out.println("Ingreso una opcion Incorrecta");
                             break;
                     }
-           } while (opc <= 0 || 6 <= opc);
+           } while (opc <= 0 || 5 <= opc);      //si opc es menor a cero o mayor o igual a 5 se repite todo hasta q sea correcta la opcion
     }
     
 }
