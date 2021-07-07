@@ -1,0 +1,14 @@
+El codigo esta dentro de la carpeta siguiendo esta ruta:
+
+NombreDelArchivo/src/NombreDelArchivo/NombreDelArchivo.java
+ejemplo:
+MagicMatrix/src/magicmatrix/MagicMatrix.java
+
+
+Los archivos los guarde con el nombre representativo al ejercicio:
+
+Ejercicio 26 - AntiSimetrica
+Ejercicio 27 - MagicMatrix
+
+
+P.D: ya voy a ir agregando los demas archivos y comentando el codigo.
