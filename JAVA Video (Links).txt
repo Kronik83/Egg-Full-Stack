@@ -1,0 +1,16 @@
+JAVA.
+
+Video de repaso de Java, atendiendo algunas cuestion que vimos entre Celina, Ivan y Dudas que salieron en el meet:
+Tambien este video tiene la realizacion del Ejercicio 17, donde se puso en practica algunas de las dudas q surgieron.
+El desarrollo del codigo no es mio aclaro, se fue armando en el momento. Cada uno de los q participo en el vivo fue realizando 
+aportes y se fue armando el codigo.
+
+https://mega.nz/file/ZTgxiQ5Z#M-xBHNBWte15LJ3GF1cAbNRM4iLi1mk2N_qw81nPVk0
+
+
+Matriz Magica:
+se trabajo de la misma manera que en el anterior, y fuimos armando el codigo en vivo, resultando en un codigo de 54 lineas 
+mas o menos, y usamos tanto matrices como vectores, y amedida que fuimos desarrollando el codigo resolvimos varias cosas
+de una manera distinta al Pseint, se resumio y trato de explicar todo al detalle.
+
+https://mega.nz/file/xCBQSByZ#SWxjQaITOMvm9HyebQhqaoHdNMMKpAJhLEUp8WdfU68
