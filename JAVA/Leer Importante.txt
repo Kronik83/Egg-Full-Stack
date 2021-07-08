@@ -6,9 +6,10 @@ MagicMatrix/src/magicmatrix/MagicMatrix.java
 
 
 Los archivos los guarde con el nombre representativo al ejercicio:
-
+Ejercicio 17 - RS232 (Video)
 Ejercicio 26 - AntiSimetrica
 Ejercicio 27 - MagicMatrix
+Ejercicio 27 (Es el del Video)
 
 
 P.D: ya voy a ir agregando los demas archivos y comentando el codigo.
